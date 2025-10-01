@@ -1,0 +1,98 @@
+// Spring Boot 프로젝트의 빌드 설정 파일
+// Gradle은 Java 프로젝트의 의존성 관리와 빌드를 담당하는 도구입니다
+// 마치 요리할 때 필요한 재료들을 자동으로 준비해주는 것과 같아요
+
+plugins {
+    // Spring Boot 플러그인 (Spring Boot 애플리케이션을 쉽게 만들 수 있게 해줍니다)
+    id 'org.springframework.boot' version '3.2.0'
+    // Java 플러그인 (Java 코드를 컴파일하고 실행할 수 있게 해줍니다)
+    id 'java'
+    // Spring Boot 의존성 관리 플러그인 (버전 관리를 자동화해줍니다)
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+// 프로젝트 기본 정보
+group = 'com.example'                    // 프로젝트 그룹 ID (패키지명의 상위 부분)
+version = '1.0.0'                        // 프로젝트 버전
+sourceCompatibility = '17'               // Java 버전 (Java 17 사용)
+
+// 의존성을 다운로드할 저장소 설정
+repositories {
+    // Maven Central 저장소 (가장 많이 사용되는 공개 저장소)
+    mavenCentral()
+    // Spring Milestone 저장소 (Spring의 개발 중인 버전들)
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+// 프로젝트에 필요한 라이브러리들 (의존성)
+dependencies {
+    // Spring Boot Web Starter (웹 애플리케이션 개발에 필요한 기본 라이브러리들)
+    // - Spring MVC (웹 컨트롤러)
+    // - Tomcat (웹 서버)
+    // - Jackson (JSON 처리)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // Spring Boot Data JPA Starter (데이터베이스 작업을 쉽게 해주는 라이브러리)
+    // - Spring Data JPA (데이터베이스 ORM)
+    // - Hibernate (JPA 구현체)
+    // - H2 Database (개발용 인메모리 데이터베이스)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
+    // Spring Boot WebSocket Starter (실시간 통신을 위한 라이브러리)
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    
+    // Spring Boot Validation Starter (데이터 검증을 위한 라이브러리)
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    // Spring Boot DevTools (개발 시 편의 기능들)
+    // - 자동 재시작 (코드 변경 시 서버 자동 재시작)
+    // - 라이브 리로드 (정적 리소스 변경 시 자동 새로고침)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    
+    // H2 Database (개발용 데이터베이스)
+    // - 메모리에서 실행되는 가벼운 데이터베이스
+    // - 별도 설치 없이 사용 가능
+    runtimeOnly 'com.h2database:h2'
+    
+    // MySQL Connector (MySQL 데이터베이스 연결을 위한 드라이버)
+    // 실제 운영 환경에서 MySQL을 사용할 때 필요
+    // runtimeOnly 'mysql:mysql-connector-java'
+    
+    // PostgreSQL Driver (PostgreSQL 데이터베이스 연결을 위한 드라이버)
+    // runtimeOnly 'org.postgresql:postgresql'
+    
+    // Spring Boot Test Starter (테스트를 위한 라이브러리들)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+    // Spring Security Test (보안 테스트를 위한 라이브러리)
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+// 테스트 설정
+test {
+    // JUnit 5를 사용하여 테스트 실행
+    useJUnitPlatform()
+}
+
+// Java 컴파일 설정
+java {
+    // Java 17 버전 사용
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// Gradle 빌드 최적화 설정
+tasks.named('bootJar') {
+    // 실행 가능한 JAR 파일 생성
+    archiveFileName = 'react-learning-backend.jar'
+}
+
+// 애플리케이션 실행 설정
+bootRun {
+    // JVM 옵션 설정 (메모리 사용량 제한)
+    jvmArgs = ['-Xmx512m', '-Xms256m']
+    
+    // 시스템 프로퍼티 설정
+    systemProperty 'spring.profiles.active', 'dev'
+}

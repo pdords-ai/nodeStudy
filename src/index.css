@@ -1,0 +1,110 @@
+/* 전체 웹사이트의 기본 스타일을 설정합니다 */
+
+/* 모든 요소에 적용되는 기본 스타일 (전역 리셋) */
+* {
+  margin: 0;                    /* 모든 요소의 바깥쪽 여백을 0으로 설정 */
+  padding: 0;                   /* 모든 요소의 안쪽 여백을 0으로 설정 */
+  box-sizing: border-box;       /* 요소의 크기 계산 방식을 변경 (여백 포함) */
+}
+
+/* 웹사이트 전체의 기본 스타일 */
+body {
+  /* 폰트 설정 (시스템 폰트를 우선으로 사용) */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;    /* 웹킷 브라우저에서 폰트를 부드럽게 */
+  -moz-osx-font-smoothing: grayscale;     /* 파이어폭스에서 폰트를 부드럽게 */
+  background-color: #f5f5f5;              /* 배경색을 연한 회색으로 설정 */
+  color: #333;                            /* 텍스트 색상을 진한 회색으로 설정 */
+  line-height: 1.6;                       /* 줄 간격을 1.6배로 설정 (읽기 편하게) */
+}
+
+/* 메인 컨테이너 (전체 내용을 감싸는 상자) */
+.container {
+  max-width: 1200px;            /* 최대 너비를 1200px로 제한 */
+  margin: 0 auto;               /* 좌우 여백을 자동으로 설정 (가운데 정렬) */
+  padding: 20px;                 /* 안쪽 여백을 20px로 설정 */
+}
+
+/* 각 섹션(학습 예제)의 스타일 */
+.section {
+  background: white;                        /* 배경색을 흰색으로 설정 */
+  border-radius: 8px;                       /* 모서리를 둥글게 처리 */
+  padding: 20px;                            /* 안쪽 여백을 20px로 설정 */
+  margin-bottom: 20px;                      /* 아래쪽 여백을 20px로 설정 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);   /* 그림자 효과 추가 (살짝 떠있는 느낌) */
+}
+
+.section h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+input, textarea, select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 5px;
+  width: 200px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #fafafa;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.error {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #e74c3c;
+}
+
+.success {
+  color: #27ae60;
+  background-color: #f2fdf2;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #27ae60;
+}

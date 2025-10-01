@@ -1,0 +1,8 @@
+// Gradle 프로젝트 설정 파일
+// 프로젝트의 이름과 구조를 정의합니다
+
+// 프로젝트 이름 설정
+rootProject.name = 'react-learning-backend'
+
+// 하위 프로젝트가 있다면 여기에 추가
+// include 'module1', 'module2'

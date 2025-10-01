@@ -1,0 +1,55 @@
+{
+  // 프로젝트의 기본 정보
+  "name": "react-study-project",                        // 프로젝트 이름 (React 학습용 프로젝트)
+  "version": "1.0.0",                                   // 프로젝트 버전 (1.0.0 = 첫 번째 완성 버전)
+  "description": "React 학습을 위한 프로젝트",              // 프로젝트 설명
+  "main": "index.js",                                   // 메인 파일 (프로그램이 시작되는 파일)
+  
+  // 실행 명령어들 (터미널에서 npm run 명령어로 실행할 수 있는 스크립트들)
+  "scripts": {
+    "start": "react-scripts start",                    // npm start - 개발 서버를 시작합니다 (브라우저에서 볼 수 있어요)
+    "build": "react-scripts build",                    // npm run build - 웹사이트를 완성품으로 만듭니다 (배포용)
+    "test": "react-scripts test",                       // npm test - 테스트를 실행합니다 (코드가 잘 작동하는지 확인)
+    "eject": "react-scripts eject"                      // npm run eject - 고급 설정을 사용할 수 있게 해줍니다 (위험한 명령어!)
+  },
+  
+  // 프로덕션 의존성 (실제 웹사이트에서 필요한 라이브러리들)
+  "dependencies": {
+    "react": "^18.2.0",                                // React 라이브러리 (웹사이트의 UI를 만드는 핵심 도구)
+    "react-dom": "^18.2.0",                            // React DOM (React를 브라우저에 보여주는 도구)
+    "react-scripts": "5.0.1",                          // React 개발 도구들 (빌드, 테스트, 개발 서버 등)
+    "react-router-dom": "^6.8.0",                      // React Router (페이지 간 이동을 위한 라이브러리)
+    "axios": "^1.6.0"                                  // HTTP 클라이언트 (서버와 데이터를 주고받는 도구)
+  },
+  
+  // 브라우저 지원 목록 (어떤 브라우저에서 작동하는지 정하는 설정)
+  "browserslist": {
+    // 운영 환경 (실제 사용자들이 사용할 때)
+    "production": [
+      ">0.2%",                                         // 전 세계 사용자의 0.2% 이상이 사용하는 브라우저
+      "not dead",                                      // 더 이상 지원되지 않는 브라우저는 제외
+      "not op_mini all"                                // 오래된 Opera Mini 브라우저는 제외
+    ],
+    // 개발 환경 (개발할 때)
+    "development": [
+      "last 1 chrome version",                         // 최신 Chrome 브라우저
+      "last 1 firefox version",                        // 최신 Firefox 브라우저
+      "last 1 safari version"                          // 최신 Safari 브라우저
+    ]
+  },
+  
+  // 프로젝트 키워드들 (검색할 때 사용되는 단어들)
+  "keywords": [
+    "react",        // React 라이브러리
+    "study",        // 학습용
+    "learning",     // 학습
+    "hooks",        // React Hooks (함수형 컴포넌트에서 사용하는 기능들)
+    "components"    // 컴포넌트 (재사용 가능한 UI 조각들)
+  ],
+  
+  // 프로젝트 작성자
+  "author": "React Learner",
+  
+  // 라이선스 (이 코드를 어떻게 사용할 수 있는지)
+  "license": "MIT"  // MIT 라이선스 = 자유롭게 사용, 수정, 배포 가능
+}

@@ -1,0 +1,98 @@
+# Spring Boot 애플리케이션 설정 파일
+# 애플리케이션의 동작 방식을 설정하는 파일입니다
+# 마치 게임의 설정 메뉴와 같아요
+
+# 서버 설정
+server:
+  # 서버 포트 (React는 3000, Spring Boot는 8080 사용)
+  port: 8080
+  # 서버 컨텍스트 경로 (API의 기본 경로)
+  servlet:
+    context-path: /api
+
+# Spring Boot 애플리케이션 설정
+spring:
+  # 애플리케이션 이름
+  application:
+    name: react-learning-backend
+  
+  # 데이터베이스 설정 (H2 인메모리 데이터베이스)
+  datasource:
+    # 데이터베이스 URL (H2 인메모리 데이터베이스)
+    url: jdbc:h2:mem:testdb
+    # 데이터베이스 드라이버 클래스
+    driver-class-name: org.h2.Driver
+    # 데이터베이스 사용자명
+    username: sa
+    # 데이터베이스 비밀번호
+    password: 
+  
+  # JPA (Java Persistence API) 설정
+  jpa:
+    # 데이터베이스 방언 (H2 데이터베이스용)
+    database-platform: org.hibernate.dialect.H2Dialect
+    # DDL 자동 생성 설정 (개발 시에만 사용)
+    hibernate:
+      ddl-auto: create-drop
+    # SQL 쿼리 로깅 설정 (개발 시 SQL 확인용)
+    show-sql: true
+    # SQL 쿼리 포맷팅 (가독성을 위해)
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # H2 데이터베이스 콘솔 설정 (개발 시 데이터베이스 확인용)
+  h2:
+    console:
+      enabled: true
+      # 콘솔 접근 경로
+      path: /h2-console
+  
+  # CORS 설정은 CorsConfig.java에서 관리합니다
+
+# 로깅 설정
+logging:
+  # 로그 레벨 설정
+  level:
+    # 루트 로그 레벨
+    root: INFO
+    # Spring 프레임워크 로그 레벨
+    org.springframework: DEBUG
+    # Hibernate SQL 로그 레벨
+    org.hibernate.SQL: DEBUG
+    # 우리 애플리케이션 패키지 로그 레벨
+    com.example: DEBUG
+  # 로그 패턴 설정
+  pattern:
+    # 콘솔 출력 패턴
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    # 파일 출력 패턴
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# 개발 환경 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  # 개발 환경에서만 활성화되는 설정
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+
+# 운영 환경 설정
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  # 운영 환경에서만 활성화되는 설정
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: false
